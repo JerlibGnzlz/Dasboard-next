@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image'
-import { IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
+import { IoAccessibilitySharp, IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
 import { MenuItem } from "./MenuItem";
 
 const menuItems = [
@@ -15,6 +15,12 @@ const menuItems = [
         icon: <IoCalculator size={40} />,
         title: "Counter",
         subTitle: "Contador Client"
+    },
+    {
+        path: "/dashboard/pokemons",
+        icon: <IoAccessibilitySharp size={40} />,
+        title: "Pokemons",
+        subTitle: "Generacion estatica"
     }
 ]
 
