@@ -31,5 +31,4 @@ export const MenuItem = ({ icon, path, subTitle, title }: Props) => {
             </div>
         </Link >
     )
-
 };
