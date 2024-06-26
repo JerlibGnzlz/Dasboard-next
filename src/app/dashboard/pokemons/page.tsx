@@ -29,7 +29,7 @@ export default async function PokemonsPage() {
                                 width={100}
                                 height={100}
                                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${poke.id}.svg`}
-                                alt="pokemon"
+                                alt={poke.name}
                             />
                         ))
                     }
