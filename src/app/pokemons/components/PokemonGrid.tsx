@@ -1,6 +1,7 @@
 import PokemonsPage from "@/app/dashboard/pokemons/page";
 import Image from "next/image";
 import { simplePokemon } from "../interfaces/simple-interfaces";
+import { PokemonCard } from "./PokemonCard";
 
 
 
@@ -15,12 +16,14 @@ export const PokemonGrid = ({ pokemons }: Props) => {
             {
                 pokemons.map(poke => (
 
-                    <Image key={poke.id}
-                        width={100}
-                        height={100}
-                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${poke.id}.svg`}
-                        alt={poke.name}
-                    />
+                    <PokemonCard key={poke.id} />
+
+                    // <Image key={poke.id}
+                    //     width={100}
+                    //     height={100}
+                    //     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${poke.id}.svg`}
+                    //     alt={poke.name}
+                    // />
                 ))
             }
         </div>
