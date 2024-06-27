@@ -1,7 +1,8 @@
-import PokemonsPage from "@/app/dashboard/pokemons/page";
+// import PokemonsPage from "../../../app/dashboard/pokemons";
 import Image from "next/image";
 import { simplePokemon } from "../interfaces/simple-interfaces";
 import { PokemonCard } from "./PokemonCard";
+// import PokemonsPage from "@/app/dashboard/page";
 
 
 
