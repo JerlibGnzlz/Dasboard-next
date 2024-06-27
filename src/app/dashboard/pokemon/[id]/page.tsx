@@ -1,10 +1,11 @@
+import { Pokeid } from "@/pokemons"
 
 interface Props {
     params: { id: string }
 }
 
 
-const getPokemons = async (id: string) => {
+const getPokemons = async (id: string): Promise<Pokeid> => {
     const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,
         { cache: "force-cache" }//TODO: cambiarlo mas adelante
     )
@@ -19,6 +20,7 @@ export default async function PokemonPage({ params }: Props) {
     return (
         <div>
             <h1>Pokemon {params.id}</h1>
+            {JSON.stringify(getPoke)}
         </div>
     );
 }
