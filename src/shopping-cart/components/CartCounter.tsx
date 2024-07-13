@@ -1,7 +1,7 @@
 "use client"
-// import { useAppDispatch, useAppSelector } from '@/storeRedux'
 import { useAppDispatch, useAppSelector } from '../../storeRedux/index'
-import { decrementar, incrementar } from '../../storeRedux/counter/counterSlice'
+import { decrementar, incrementar, initConterState, resetear } from '../../storeRedux/counter/counterSlice'
+import { useEffect } from 'react'
 interface Props {
     value?: number
 }
@@ -12,6 +12,11 @@ export const CartCounter = ({ value = 0 }: Props) => {
     // const [count, setCount] = useState(value)
     const count = useAppSelector((state) => state.conter.count)
     const dispatch = useAppDispatch()
+
+    useEffect(() => {
+        dispatch(initConterState(value))
+    }, [dispatch, value]);
+
 
     return (
         <>
