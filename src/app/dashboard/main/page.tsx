@@ -1,3 +1,4 @@
+import { WidgetGrid } from "@/components";
 import { SimpleWidget } from "@/components/dashboard/SimpleWidget";
 
 
@@ -11,12 +12,8 @@ export default function MainPage() {
             <h1 className="mt-2 text-3xl">Dashboard</h1>
             <span className="text-lg">Informacion General</span>
 
-            <div className="flex flex-wrap p-2">
-                <SimpleWidget />
-                <SimpleWidget />
-                <SimpleWidget />
-                <SimpleWidget />
-            </div>
+            <WidgetGrid />
+
         </div>
     );
 }
