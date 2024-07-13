@@ -21,6 +21,12 @@ const menuItems = [
         icon: <IoAccessibilitySharp size={40} />,
         title: "Pokemons",
         subTitle: "Generacion estatica"
+    },
+    {
+        path: "/dashboard/pokemons/favorites",
+        icon: <IoAccessibilitySharp size={40} />,
+        title: "Favorites",
+        subTitle: "Global state"
     }
 ]
 
