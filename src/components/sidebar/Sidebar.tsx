@@ -1,7 +1,7 @@
 import React from "react";
 import Image from 'next/image'
 import { IoAccessibilitySharp, IoBrowsersOutline, IoCalculator, IoHeartOutline, IoLogoReact } from "react-icons/io5";
-import { MenuItem } from "./MenuItem";
+import { MenuItem } from "../sidebar/MenuItem";
 
 const menuItems = [
     {
