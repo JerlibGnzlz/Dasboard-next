@@ -1,6 +1,6 @@
 import React from "react";
 import Image from 'next/image'
-import { IoAccessibilitySharp, IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
+import { IoAccessibilitySharp, IoBrowsersOutline, IoCalculator, IoHeartOutline, IoLogoReact } from "react-icons/io5";
 import { MenuItem } from "./MenuItem";
 
 const menuItems = [
@@ -23,8 +23,8 @@ const menuItems = [
         subTitle: "Generacion estatica"
     },
     {
-        path: "/dashboard/pokemons/favorites",
-        icon: <IoAccessibilitySharp size={40} />,
+        path: "/dashboard/favorites",
+        icon: <IoHeartOutline size={40} className="text-red-900" />,
         title: "Favorites",
         subTitle: "Global state"
     }
