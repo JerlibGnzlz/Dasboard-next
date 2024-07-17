@@ -4,11 +4,16 @@ import { simplePokemon } from '../../pokemons/interfaces/simple-interfaces';
 
 
 export interface PokemonState {
-    [key: string]: simplePokemon
+    favorites: { [key: string]: simplePokemon }
+}
+
+const getInitialState = (): PokemonState => {
+    const favcoritos = JSON.parse(localStorage.getItem("favorites-pokemon") ?? "{}")
+    return favcoritos
 }
 
 const initialState: PokemonState = {
-    "1": { id: "1", name: "bulbasur" },
+    favorites: {}
 }
 
 export const pokemonSlice = createSlice({
@@ -19,11 +24,13 @@ export const pokemonSlice = createSlice({
             const pokemon = action.payload
             const { id } = pokemon
 
-            if (!!state[id]) {
-                delete state[id]
-                return
+            if (!!state.favorites[id]) {
+                delete state.favorites[id]
+                // return
+            } else {
+                state.favorites[id] = pokemon
             }
-            state[id] = pokemon
+            localStorage.setItem("favorites-pokemon", JSON.stringify(state.favorites))
         }
     },
 })
