@@ -15,10 +15,19 @@ export const pokemonSlice = createSlice({
     name: 'pokemon',
     initialState,
     reducers: {
+        toggleFavoritos: (state, action: PayloadAction<simplePokemon>) => {
+            const pokemon = action.payload
+            const { id } = pokemon
 
+            if (!!state[id]) {
+                delete state[id]
+                return
+            }
+            state[id] = pokemon
+        }
     },
 })
 
-export const { } = pokemonSlice.actions
+export const { toggleFavoritos } = pokemonSlice.actions
 
 export default pokemonSlice.reducer

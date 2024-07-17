@@ -4,7 +4,8 @@ import { simplePokemon } from "../interfaces/simple-interfaces"
 import Image from "next/image"
 import { IoHeart, IoHeartOutline } from "react-icons/io5"
 import { useSelector } from "react-redux"
-import { useAppSelector } from "@/storeRedux"
+import { useAppDispatch, useAppSelector } from "@/storeRedux"
+import { toggleFavoritos } from "@/storeRedux/pokemonFavorites/pokemon"
 
 
 interface Props {
@@ -12,12 +13,16 @@ interface Props {
 }
 
 export const PokemonCard = ({ pokemon }: Props) => {
-
+    const dispatch = useAppDispatch()
     const { id, name } = pokemon
 
     const isFavorite = useAppSelector(state => !!state.pokemon[id])
     console.log({ isFavorite })
 
+
+    const onToggle = () => {
+        dispatch(toggleFavoritos(pokemon))
+    }
 
     return (
         <div className="mx-auto right-0 mt-2 w-60">
@@ -40,18 +45,20 @@ export const PokemonCard = ({ pokemon }: Props) => {
                         </Link>
                     </div>
                 </div>
-                <div className="border-b">
-                    <Link href="/dashboard/main" className="px-4 py-2 hover:bg-gray-100 flex items-center" >
+                <div
+                    onClick={onToggle}
+                    className="border-b">
+                    <div className="px-4 py-2 hover:bg-gray-100 flex items-center cursor-pointer" >
                         <div className="text-red-600">
                             {isFavorite ? (<IoHeart />) : (<IoHeartOutline />)}
                         </div>
                         <div className="pl-3">
                             <p className="text-sm font-medium text-gray-800 leading-none">
-                                No es favorito
+                                {isFavorite ? "Es favorito" : "No es Favorito"}
                             </p>
-                            <p className="text-xs text-gray-500">View your campaigns</p>
+                            <p className="text-xs text-gray-500">Click para cambiar</p>
                         </div>
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>
