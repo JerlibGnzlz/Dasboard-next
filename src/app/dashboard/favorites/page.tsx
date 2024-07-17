@@ -1,4 +1,5 @@
 import { IPokemon, simplePokemon } from "@/pokemons";
+import { FavoritesPokemon } from "@/pokemons/components/FavoritesPokemon";
 import { PokemonGrid } from "@/pokemons/components/PokemonGrid";
 import Image from "next/image";
 
@@ -17,7 +18,7 @@ export default async function PokemonsPage() {
                 <span className="text-lg font-bold my-2 text-center">Pokemones Favoritos <small
                     className="text-blue-500">Global state</small></span>
 
-                <PokemonGrid pokemons={[]} />
+                <FavoritesPokemon />
 
             </div>
         </>
