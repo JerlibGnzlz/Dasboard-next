@@ -1,7 +1,10 @@
+"use client"
 import Link from "next/link"
 import { simplePokemon } from "../interfaces/simple-interfaces"
 import Image from "next/image"
-import { IoHeartOutline } from "react-icons/io5"
+import { IoHeart, IoHeartOutline } from "react-icons/io5"
+import { useSelector } from "react-redux"
+import { useAppSelector } from "@/storeRedux"
 
 
 interface Props {
@@ -11,6 +14,10 @@ interface Props {
 export const PokemonCard = ({ pokemon }: Props) => {
 
     const { id, name } = pokemon
+
+    const isFavorite = useAppSelector(state => !!state.pokemon[id])
+    console.log({ isFavorite })
+
 
     return (
         <div className="mx-auto right-0 mt-2 w-60">
@@ -36,7 +43,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
                 <div className="border-b">
                     <Link href="/dashboard/main" className="px-4 py-2 hover:bg-gray-100 flex items-center" >
                         <div className="text-red-600">
-                            <IoHeartOutline />
+                            {isFavorite ? (<IoHeart />) : (<IoHeartOutline />)}
                         </div>
                         <div className="pl-3">
                             <p className="text-sm font-medium text-gray-800 leading-none">
